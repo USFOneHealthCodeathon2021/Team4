@@ -2,11 +2,11 @@
 ---
 **Team Leaders**: Jenna Oberstaller, Justin Gibbons
 
-**Team Members**:  Ricardo Izurieta, Ankita	Kadlag, Cameron	Parsey, Anthony	Nguyen, Alyssa Obermayer, Samira Jahangiri, Vyoma Sheth, Teresa Darcey
+**Team Members**:  Teresa Darcey, Samira Jahangiri, Alyssa Obermayer, Cameron	Parsey,  Vyoma Sheth, Justin Swanson
 
-**GVN/USF mentors**:
+**GVN/USF consulting advisor**:
 
-
+Dr. Gene Morse
 
 ## Objectives
 
