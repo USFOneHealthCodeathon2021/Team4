@@ -14,7 +14,7 @@ The goal of our project is to address vaccine and resource distribution and disp
 
 ## Methods and Implementation
 
-![](https://i.imgur.com/U2FCOZa.png)
+![](https://i.imgur.com/i6VHgOQ.png)
 
 ## Results 
 
