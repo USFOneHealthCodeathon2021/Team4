@@ -16,5 +16,12 @@ The goal of our project is to address vaccine and resource distribution and disp
 
 ![](https://i.imgur.com/i6VHgOQ.png)
 
+- Social Vulnerability Index data
+  - https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html
+  - 2018 data, Geography: Florida, Geography Type: Census Tract
+- Zipcode Census Tract Conversion table
+  - https://www.huduser.gov/portal/datasets/usps_crosswalk.html
+  - "crosswalk type:" zip-tract; 4th quarter 2018
+
 ## Results 
 
