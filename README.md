@@ -2,7 +2,7 @@
 ---
 **Team Leaders**: Jenna Oberstaller, Justin Gibbons
 
-**Team Members**:  Teresa Darcey, Samira Jahangiri, Alyssa Obermayer, Cameron	Parsey,  Vyoma Sheth, Justin Swanson
+**Team Members**:  Teresa Darcey, Samira Jahangiri, Alyssa Obermayer, Vyoma Sheth, Justin Swanson
 
 **GVN/USF consulting advisor**:
 
