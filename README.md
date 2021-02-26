@@ -14,7 +14,7 @@ The goal of our project is to address vaccine and resource distribution and disp
 
 ## Methods and Implementation
 
-![](https://i.imgur.com/i6VHgOQ.png)
+![](https://i.imgur.com/Kc2MNss.png)
 
 - Social Vulnerability Index data
   - https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html
