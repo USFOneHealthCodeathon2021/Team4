@@ -16,7 +16,7 @@ The goal of our project is to address vaccine and resource distribution and disp
 
 To begin generating our Covid-19 dashboard data was gathered from the various sources listed below. A general overlook of this data allowed us to gain a better understanding of how to best manipulate the information to draw correlations between Covid-19 case numbers and certain covariates, such as education level, income, household size, race, and means of transportation. Once the appropriate data was obtained, it was then cleaned and formatted through the use of R, Microsoft Excel, and Python. Further, this data was incorporated within an interactive user interface through R Shiny. This includes a geographic display of Florida at a zip code level as well as an interactive graphical interface which the user may select the covariates they wish to compare with Covid-19 data. These features allow for the user to draw their own inferences from the data they are shown and access for themselves the impact of Covid-19 and potential community risk.
 
-# Sentiment analysis
+#### Sentiment analysis
 Tweets satisfying the following criteria were collected for sentiment-analysis:
   - were tweeted between 1/1/2020 and 12/31/2020
   - were sent from within a __ radius from one of 100 selected Central Florida cities (INCLUDE SUPPLEMENTAL TABLE)
