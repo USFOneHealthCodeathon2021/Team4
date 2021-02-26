@@ -22,6 +22,9 @@ The goal of our project is to address vaccine and resource distribution and disp
 - Zipcode Census Tract Conversion table
   - https://www.huduser.gov/portal/datasets/usps_crosswalk.html
   - "crosswalk type:" zip-tract; 4th quarter 2018
+- Florida Covid Cases by Zip Code
+  - https://covid19-usflibrary.hub.arcgis.com/datasets/florida-covid19-02242021-byzip-csv
+  - Last Updated: 02.24.2021
 
 ## Results 
 
