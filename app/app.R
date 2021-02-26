@@ -13,12 +13,12 @@ fl_pop <- get_acs(geography = "zcta",
                   variables = c("B11016_001","B19101_001", "B05010_001","B24011_001"),
                   state = "FL",
                   geometry = TRUE)
-fl_pop1 <- fl_pop
 median_income <- read.table("/Users/vyomasheth/Documents/Codethon_2021/Team4/app/median_income_dotplot.tsv",header = T, fill = TRUE)
 low_income <- read.table("/Users/vyomasheth/Documents/Codethon_2021/Team4/app/low_income_proportion_and_prevelance_dotplot.tsv" , fill = TRUE , header = T)
 race <- read.table("/Users/vyomasheth/Documents/Codethon_2021/Team4/app/race_and_prevelance.tsv", header = T, sep = "\t")
 non_white <- read.table("/Users/vyomasheth/Documents/Codethon_2021/Team4/app/nonwhite_prop_and_prevelance.tsv",header = T, fill = TRUE)
-
+noncollege_educated <- read.table("/Users/vyomasheth/Documents/Codethon_2021/Team4/app/NonCollege_Educated.tsv", header = T)
+avg_household <- read.table("/Users/vyomasheth/Documents/Codethon_2021/Team4/app/avg_household_size_and_covid_prevelance.tsv",header = T,fill = TRUE)
 # the ui object has all the information for the user-interface
 ui <- fluidPage(
     titlePanel("Social Cost"),
@@ -37,7 +37,12 @@ ui <- fluidPage(
                                 c("RACE" = "RACE",
                                   "LOW_INCOME" = "LOW_INCOME",
                                   "NON_WHITE" = "NON_WHITE",
-                                  "MEDIAN_INCOME"="MEDIANINCOME"))
+                                  "MEDIAN_INCOME"="MEDIANINCOME",
+                                  "NOCOLLEGE" = "NOCOLLEGE",
+                                  "AVGHOUSEHOLD" = "AVGHOUSEHOLD")),
+                    selectizeInput("COUNTY",
+                                   "CHOOSE YOUR COUNTY:",
+                                   choices = unique(as.character(median_income$COUNTYNAME)))
                     # checkboxGroupInput("COVIDCOVARIATES", "COVARIATES:",
                     #                    choices = c("Medianincome"="median_inc",
                     #                                "Race" ="race",
@@ -67,43 +72,64 @@ server <- function(input, output, session) {
     getXData <- function(){
         #you need t0 know the value of $COVIDCOVARIATES =  RACE 
         if(identical(input$COVIDCOVARIATES,"MEDIANINCOME")){
-            return(median_income$Median_Income)
+            NEWMEDINCOME <- median_income %>% filter(COUNTYNAME == input$COUNTY)
+            return(NEWMEDINCOME$Median_Income)
         }
-        print(input$COVIDCOVARIATES)
         if(identical(input$COVIDCOVARIATES,"LOW_INCOME")){
-            return(low_income$Proportion)
+            newlowincome <- low_income %>% filter(COUNTYNAME == input$COUNTY)
+            return(newlowincome$Proportion)
         }
         if(identical(input$COVIDCOVARIATES,"RACE")){
-            return(race$Proportion)
+            newrace <- race %>% filter(COUNTYNAME == input$COUNTY)
+            return(newrace$Proportion)
         }
         if(identical(input$COVIDCOVARIATES,"NON_WHITE")){
-            return(non_white$Proportion)
+            newnonwhite <- median_income %>% filter(COUNTYNAME == input$COUNTY)
+            return(newnonwhite$Proportion)
         }
-            
-        return(low_income$Proportion)
+        if(identical(input$COVIDCOVARIATES,"NOCOLLEGE")){
+            newnocollege <- noncollege_educated %>% filter(COUNTYNAME == input$COUNTY)
+            return(newnocollege$Proportion)
+        }
+        if(identical(input$COVIDCOVARIATES,"AVGHOUSEHOLD")){
+            newavghousehold <- avg_household %>% filter(COUNTYNAME == input$COUNTY)
+            return(newavghousehold$Proportion)
+        }
     }
     
     getYData <- function(){
         if(identical(input$COVIDCOVARIATES,"MEDIANINCOME")){
-            return(median_income$Prevelance)
+            NEWMEDINCOME1 <- median_income %>% filter(COUNTYNAME == input$COUNTY)
+            return(NEWMEDINCOME1$Prevelance)
         }
         if(identical(input$COVIDCOVARIATES,"LOW_INCOME")){
-            return(low_income$Prevelance)
+            newlowincome1 <- low_income %>% filter(COUNTYNAME == input$COUNTY)
+            return(newlowincome1$Prevelance)
         }
         if(identical(input$COVIDCOVARIATES,"RACE")){
-            return(race$Prevelance)
+            newrace1 <- race %>% filter(COUNTYNAME == input$COUNTY)
+            return(newrace1$Prevelance)
         }
         if(identical(input$COVIDCOVARIATES,"NON_WHITE")){
-            return(non_white$Prevelance)
+            newnonwhite1 <- non_white %>% filter(COUNTYNAME == input$COUNTY)
+            return(newnonwhite1$Prevelance)
         }
-        #you need t0 know the value of $COVIDCOVARIATES =  RACE 
-        return(low_income$Prevelance)
+        if(identical(input$COVIDCOVARIATES,"NOCOLLEGE")){
+            newnocollege1 <- noncollege_educated %>% filter(COUNTYNAME == input$COUNTY)
+            return(newnocollege$Prevelance)
+        }
+        if(identical(input$COVIDCOVARIATES,"AVGHOUSEHOLD")){
+            newavghousehold1 <- avg_household %>% filter(COUNTYNAME == input$COUNTY)
+            return(newavghousehold$Prevelance)
+        }
     }
+    
     
     output$Plot <- renderPlotly({
         plot1 <- plot_ly(
             y =c(getYData()),
-            x= c(getXData())
+            x= c(getXData()),
+            
             )
     })
     
