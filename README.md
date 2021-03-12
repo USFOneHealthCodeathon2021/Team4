@@ -54,6 +54,7 @@ The following R packages were used while creating our dashboard:
 - tidycensus v0.11.4
 - devtools v2.3.2
 - mapview v2.9.0
+- ggplot2 v3.3.3
 
 ### Python Software
 
