@@ -55,6 +55,7 @@ The following R packages were used while creating our dashboard:
 - devtools v2.3.2
 - mapview v2.9.0
 - ggplot2 v3.3.3
+- stats v4.0.2
 
 ### Python Software
 
